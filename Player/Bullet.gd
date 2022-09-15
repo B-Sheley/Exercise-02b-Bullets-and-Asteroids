@@ -5,17 +5,17 @@ var speed = 500.0
 var damage = 1
 
 func _ready():
-	rotation_degrees = 45
 	velocity = Vector2(0,-speed).rotated(rotation)
 
 func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector2.ZERO)
-	position = position + velocity
+	print(velocity)
+	print(position)
 	position.x = wrapf(position.x, 0, 1024)
 	position.y = wrapf(position.y, 0, 600)
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	queue_free()
 
 
